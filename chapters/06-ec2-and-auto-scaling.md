@@ -56,11 +56,11 @@ Resources:
       LaunchTemplate:
         LaunchTemplateId: !Ref WebLaunchTemplateId
         Version: '$Latest'
-      HealthCheckType: ELB
+      HealthCheckType: EC2
       HealthCheckGracePeriod: 120
 ```
 
-In a complete stack, attach the group to a target group and define a scaling policy. Review the AMI, instance profile, network rules, and maximum capacity before deployment.
+This fragment uses EC2 health checks because it does not attach a load balancer. In a complete service, attach a target group and use load balancer health checks when application readiness should control replacement. Review the AMI, instance profile, network rules, and maximum capacity before deployment.
 
 ## Inspect capacity without launching it
 
