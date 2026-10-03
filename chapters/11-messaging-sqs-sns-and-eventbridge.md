@@ -44,7 +44,7 @@ These are starting points, not rules. A common design uses EventBridge to route 
 An SQS event source mapping polls a queue and invokes Lambda with a batch. If a batch contains several messages and one fails, configure partial batch responses when the consumer should retry only failed messages. The event source mapping must enable the ReportBatchItemFailures response type.
 
 ```python
- def handler(event, context):
+def handler(event, context):
     failures = []
 
     for record in event["Records"]:
